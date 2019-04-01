@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="todoApp">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+	<script src="js/myjs.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h2>Todo</h2>
+	<div ng-controller="TodoListController as todo" class="jumbotron container-fluid">
+		<button ng-click="fetch()">get data</button>
+		<hr>
+		
+		<!-- <p>
+			<select class="form-control" ng-model="todos.xAxis">
+				<option value="selec">select option...</option>
+				<option ng-repeat="(key,val) in todos.data[1] track by $index" value="{{key}}">{{key}}</option>
+			</select>
+		</p>
+		
+		<p>
+			<div class="form-group">
+				<label for="usr">xTitle:</label>
+				<option ng-repeat="(key,val) in todos.data[1] track by $index" value="{{key}}">{{key}}</option>
+			</div>
+		</p>
+		<p>
+			<select class="form-control" ng-model="todos.yAxis">
+				<option value="selec">select option...</option>
+				<option value="userId">userId</option>
+				<option value="id">id</option>
+				<option value="complete">complete</option>
+			</select>
+			<div class="form-group">
+				<label for="pwd">yTitle:</label>
+				<input type="text" class="form-control" id="pwd" ng-model="todos.yTitle">
+			</div>
+		</p> -->
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">dateFrom</button>
+					</span>
+					<input type="text" class="form-control date-format" ng-model="todos.dateFrom" placeholder="Search for...">
+					<p><span class="error" style="display: none">Invalid Date(yyyy/MM)</span></p>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-6 -->
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">dateTo</button>
+					</span>
+					<input  type="text" class="form-control date-format" ng-model="todos.dateTo" placeholder="Search for...">
+					<p><span class="error" style="display: none">Invalid Date(yyyy/MM)</span></p>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+
+		<hr>
+		<hr>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<hr>
+		<hr>
+		<button  ng-click="showChart()">kiểm tra</button>
+	</div>
+	
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+</body>
+</html>
+
