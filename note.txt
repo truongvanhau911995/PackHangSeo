@@ -1,0 +1,6 @@
+netstat -ano | findstr :4200
+https://cv.tuanitpro.com/#skills
+https://demos.wijmo.com/5/PureJS/FlexGridPager/FlexGridPager/
+
+https://demos.wijmo.com/5/purejs/flexgridintro/flexgridintro/
+https://jsfiddle.net/Wijmo5/wsbd2xpr/
