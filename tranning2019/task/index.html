@@ -1,0 +1,90 @@
+<!doctype html>
+<html ng-app="todoApp">
+
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- Wijmo styles and core (required) -->
+	<link href="https://cdn.grapecity.com/wijmo/5.20191.603/styles/wijmo.min.css" rel="stylesheet"/>
+	<!-- apply your Wijmo licenseKey  (optional) -->
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/controls/wijmo.min.js"></script>
+
+	<!-- Wijmo controls (optional, include the controls you need) -->
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/controls/wijmo.grid.min.js"></script>
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/controls/wijmo.chart.min.js"></script>
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/controls/wijmo.input.min.js"></script>
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/controls/wijmo.gauge.min.js"></script>
+	
+	<!-- Wijmo custom culture (optional, include the culture you want) -->
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/controls/cultures/wijmo.culture.ja.min.js"></script>
+	
+	<!-- AngularJS and Wijmo framework interop (optional, could be Angular/React/Vue/etc) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="https://cdn.grapecity.com/wijmo/5.20191.603/interop/angular/wijmo.angular.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+	<script src="js/myjs.js"></script>
+	<style>
+		@media (min-width: 768px) {
+			.modal-dialog {
+				width: 900px;
+				margin: 30px auto;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="TodoListController" class=" container-fluid">
+		<h2>TASK01</h2>
+		<hr>
+		<div class="col-lg-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4>TRAINING CONTENT</h4>
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+						<!-- headers-visibility="None" -->
+					<form role="form" class="form-inline zt-form" id="zt-form" action="" method="post">
+						<div class="zcontrols row">
+						</div>
+						<div class="table-responsive">
+							<wj-flex-grid class="custom-flex-grid"
+								items-source="treeData"
+								child-items-path="items"
+								allow-resizing="None"
+								selection-mode="Row"
+								control="flex"
+								initialized="init(s,e)"
+								item-formatter="itemFormatter"
+								selection-changed="selectionChanged(s,e)">
+									<wj-flex-grid-column binding="name" header="Content to learn"  width="300">
+									</wj-flex-grid-column>
+									<wj-flex-grid-column binding="link" header="References" width="300">
+										</wj-flex-grid-column>
+									<wj-flex-grid-column binding="task" header="Task"  align="center">
+											</wj-flex-grid-column>
+									<wj-flex-grid-column binding="startdate" header="Start date" align="center">
+										</wj-flex-grid-column>
+									<wj-flex-grid-column binding="enddate" header="End date" align="center">
+										</wj-flex-grid-column>
+									<wj-flex-grid-column binding="note" header="Note" width="300">
+									</wj-flex-grid-column>
+								</wj-flex-grid>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <wij-grid data="data"  >
+			<wij-grid-column data-ng-repeat="column in othercolumns" binding="{{column.dataKey}}"  header="{{column.headerText}}" width="200" group="true"></wij-grid-column>
+
+		</wij-grid> -->
+
+</body>
+
+</html>

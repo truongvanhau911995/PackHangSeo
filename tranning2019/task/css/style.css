@@ -1,0 +1,36 @@
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.custom-flex-grid .wj-glyph-up {
+  background-image:url('http://demos.wijmo.com/5/angular/flexgridintro/flexgridintro/resources/ascending.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  width: 1em; height: 1em;
+  border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+  opacity: 1;
+}
+.custom-flex-grid .wj-glyph-down {
+  background-image:url('http://demos.wijmo.com/5/angular/flexgridintro/flexgridintro/resources/descending.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  width: 1em; height: 1em;
+  border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+  opacity: 1;
+}
+
+.custom-flex-grid .wj-glyph-right {
+  background-image:url('http://demos.wijmo.com/5/angular/flexgridintro/flexgridintro/resources/collapsed.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  width: 1em; height: 1em;
+  border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+}
+.custom-flex-grid .wj-glyph-down-right {
+  background-image:url('http://demos.wijmo.com/5/angular/flexgridintro/flexgridintro/resources/expanded.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  width: 1em; height: 1em;
+  border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+}
