@@ -48,74 +48,92 @@
 		<div class="col-lg-12">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					List User
+					Bài 1./ Tính tổng chữ số(vd: 2345 = 2+3+4+5 = 14)
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 					<form role="form" class="form-inline zt-form" id="zt-form" action="" method="post">
 						<div class="zcontrols row">
-							<div class="col-sm-4">
-								<button class="btn btn-info btnAction" type="button" id="btn-action"
-									value="btnAction">get
-									data</button>
-							</div>
-							<div class="col-sm-7">
-								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Search for..." value="">
-								</div>
-							</div>
-							<div class="pull-right col-sm-1">
-								<a href="" data-toggle="modal" data-target="#myModalAdd"
-									class="btn btn-warning btn-addNew">Add New
-								</a>
-							</div>
+							
 						</div>
 						<div class="table-responsive">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>
-											<input type="checkbox" class="cbAll" />
-										</th>
-										<th>UserID <span class="glyphicon glyphicon-triangle-bottom"></span> </th>
-										<th>Name <span class="glyphicon glyphicon-triangle-bottom"></span></th>
-										<th>title<span class="glyphicon glyphicon-triangle-bottom"></span></th>
-										<!-- <th width="30%">Content</th> -->
-										<th>completed<span class="glyphicon glyphicon-triangle-bottom"></span></th>
-										<th>Action<span class="glyphicon glyphicon-triangle-bottom"></span></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr data-ng-repeat="item in showListUser">
-										<td>
-											<input type="checkbox" name="cid" value="5a9e5a96da67bc078421d7d6" />
-										</td>
-										<td>
-											{{item.userId}}
-										</td>
-										<td>
-											{{item.name}}
-										</td>
-										<td>
-											{{item.title}}
-										</td>
-										<td>
-											{{item.completed}}
-										</td>
-										<td>
-											<a href="#"  data-ng-click="edit($index)" data-toggle="modal" data-target="#myModalEdit" type="button"
-												class="btn btn-warning btn-sm">Edit</a>
-											<a href="admin123/item/delete/5a9e5a96da67bc078421d7d6" type="button"
-												class="btn btn-danger btn-sm btn-delete">Delete</a>
-										</td>
-									</tr>
-									
-								</tbody>
-							</table>
+								Nhập chữ số:
+								<input type="text">
+								<button class="btn btn-primary">Kết quả</button>
+								Tổng số : 30
 						</div>
 					</form>
 				</div>
 			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					Bài 2./ Yêu cầu tham khảo "yeucau_task02_20190827"
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<form role="form" class="form-inline zt-form" id="zt-form" action="" method="post">
+						<div class="zcontrols row">
+							
+						</div>
+						<div class="table-responsive">
+							chọn :
+							<select class="form-control">
+								<option value=""> ----</option>
+								<option  value="id">id</option>
+								<option  value="userID">userID</option>
+							</select>
+							<button class="btn btn-primary">Kiểm tra</button>
+							có <span>3</span>  <span>userID</span> được tìm thấy
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="panel panel-info">
+					<div class="panel-heading">
+						Bài 3./ Nhập vào yyyy/mm bắt đàu và yyyy/mm kết thúc, hiển thị yyyy/mm nằm trong khoản yyyy/mm bắt đàu và yyyy/mm kết thúc
+					</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+						<form role="form" class="form-inline zt-form" id="zt-form" action="" method="post">
+							<div class="zcontrols row">
+								
+							</div>
+							<div class="table-responsive">
+								<p>
+									yyyy/mm bắt đàu:
+									<input type="text">
+									yyyy/mm kết thúc:
+									<input type="text">
+								</p>
+								<p>
+									<button class="btn btn-primary">Kết quả</button>
+								</p>
+								<div class="row">
+									<div class="col-md-1">
+										<a class="thumbnail">
+											yyyy/mm
+										</a>
+									</div>
+								    <div class="col-md-1">
+										<a class="thumbnail">
+											yyyy/mm
+										</a>
+									</div>
+									<div class="col-md-1">
+										<a class="thumbnail">
+											yyyy/mm
+										</a>
+									</div>
+									<div class="col-md-1">
+										<a class="thumbnail">
+											yyyy/mm
+										</a>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
 		</div>
 
 
