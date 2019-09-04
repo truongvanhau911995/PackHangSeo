@@ -52,7 +52,7 @@ angular.module('todoApp', ['wj']).controller('TodoListController',['$scope', '$h
         {
           name: '\u266A Logical Operators', 
           items: [
-              { name: '\u261B && ',task:"task01",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>",startdate:"",enddate:"",note:" X = Y" },
+              { name: '\u261B && ',task:"task02",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>",startdate:"",enddate:"",note:" X = Y" },
               { name: '\u261B || ',task:"task01",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>",startdate:"",enddate:"",note:"X = X + Y" },
               { name: '\u261B !',task:"task01",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>" ,startdate:"",enddate:"",note:"X = X - Y"}
           ]
@@ -62,7 +62,7 @@ angular.module('todoApp', ['wj']).controller('TodoListController',['$scope', '$h
     {
       name: '\u266A Conditional Statements', 
       items: [
-        { name: '\u261B if else and else if ',task:"task01",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>",startdate:"",enddate:"",note:" X = Y" },
+        { name: '\u261B if else and else if ',task:"task02",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>",startdate:"",enddate:"",note:" X = Y" },
         { name: '\u261B Switch Statement ',task:"task01",link:"<a href='https://www.w3schools.com/js' target='_blank'>https://www.w3schools.com/js</a>",startdate:"",enddate:"",note:"X = X + Y" },
       ]
     },
@@ -146,6 +146,9 @@ angular.module('todoApp', ['wj']).controller('TodoListController',['$scope', '$h
             var oo =  s.cells.rows[ht.row]._data["task"];
             if(oo == "task01"){
               window.open('./view/task01.html');
+            }
+            if(oo == "task02"){
+              window.open('./view/task02.html');
             }
           // $location.link(oo);
             
