@@ -13,3 +13,6 @@ https://demos.wijmo.com/5/SampleExplorer/SampleExplorer/Sample/ServerCollectionV
 https://demo.grapecity.com.cn/wijmo/docs/Topics/Wijmo/Collections/Loading-Data
 
 http://chifret.be/wijmo/Samples/JS/Angular/FlexGridIntro/FlexGridIntro/default.htm
+
+
+AIzaSyD8I86PjEk8OX3i5qb39hzMUd7l8ikE75w
