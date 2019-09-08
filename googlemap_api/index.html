@@ -1,0 +1,27 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="TestApp">  
+<head>  
+    <title>Google Map</title>  
+    <!--
+	<script src="../../RefScript/jquery-2.1.1.js"></script> 
+	<script src="angular.min.js"></script>  
+	-->
+	<script src="https://cdnjs.gtimg.com/cdnjs/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="app.js"></script>  
+    <script src="mapController.js"></script>  
+</head>  
+<body data-ng-controller="mapController">  
+    <h2>Google Map</h2>  
+    <google-map param="googleMapArgs"></google-map>  
+    <input type="button" value="Mark in Map" data-ng-click="fnClick();" />  
+    <br />  
+    Search Address : <input type="text" data-ng-model="address" data-ng-style="{'width':googleMapArgs.width}" ng-model-options="{debounce:1000}" data-ng-change="fnSearchAddress();" />  
+    <br />  
+    <div class="tt-suggestion" style="white-space: nowrap; cursor: pointer;"  
+         data-ng-repeat="item in mapData | limitTo :10" data-ng-click="selectItem($index,item)">  
+        <p style="white-space: normal;">{{item.formatted_address}}</p>  
+    </div>  
+  
+</body>  
+</html>  
