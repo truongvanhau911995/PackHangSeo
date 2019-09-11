@@ -8,7 +8,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	
+	<script>
+		 // Build the JS API request node.
+		// var script = document.createElement('script');
+		// var query = '?key=AIzaSyD8I86PjEk8OX3i5qb39hzMUd7l8ikE75w&callback=mapsLoaded';
+		// var langCode = getUrlParameter('language');
+		// // Try to be generous with accepting upper/lower case.
+		// if (langCode.length === 2) {
+		// 	langCode = langCode.toLowerCase();
+		// }
+		// if (langCode) {
+		// 	query += '&language=' + langCode;
+		// }
+		// var regionCode = getUrlParameter('region').toUpperCase();
+		// if (regionCode) {
+		// 	query += '&region=' + regionCode;
+		// }
+		// script.src = 'https://maps.googleapis.com/maps/api/js' + query;
+		// script.setAttribute('async', '');
+		// script.setAttribute('defer', '');
+		// document.head.appendChild(script);
+	</script>
 	<style>
 		@media (min-width: 768px){
 			.modal-dialog {
@@ -42,6 +62,17 @@
 				<div class="panel-body">
 					<div class="row form-group">
 						<div class="col-md-2">
+							json API :
+						</div>
+						<div class="col-md-6">
+							<input class="form-control" id="address" type="text" />
+						</div>
+						<div class="col-md-4">
+							<button class="btn btn-primary col-sm-3 pull-left" type="submit" >get property</button>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-md-2">
 							Chart type :
 						</div>
 						<div class="col-md-9">
@@ -52,17 +83,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="row form-group">
-						<div class="col-md-2">
-							json API :
-						</div>
-						<div class="col-md-6">
-							<input class="form-control" ng-model="obData.URL" type="text" />
-						</div>
-						<div class="col-md-4">
-							<button class="btn btn-primary col-sm-3 pull-left" type="submit" data-ng-click="getProperty()">get property</button>
-						</div>
-					</div>
+					
 					<div class="row form-group">
 						<div class="col-md-2">
 							dimension (X axis) :
@@ -109,7 +130,7 @@
 					  <!-- Trigger the modal with a button -->
 					  <div class="row">
 						  <div class="col-md-12">
-								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" data-ng-click="initMap()">Prevew</button>
+								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" data-ng-click="refesh()">Prevew</button>
 						  </div>
 					  </div>
 				</div>
@@ -138,8 +159,8 @@
 		</div>
 	</div>
 	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8I86PjEk8OX3i5qb39hzMUd7l8ikE75w&callback=initMap"
-    async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8I86PjEk8OX3i5qb39hzMUd7l8ikE75w"
+    ></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
