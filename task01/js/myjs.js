@@ -37,7 +37,10 @@ console.log(google.maps);
 
 
     var map, infoWindow;
-    var markers = [];
+    var markers = {
+        makersData:[],
+        makersSearch:[]
+    };
     $scope.variableConfig = {
         search:''
     }
@@ -92,27 +95,42 @@ console.log(google.maps);
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
           }
+          
     }
-    function codeAddress() {
+    function searchLocations() {
         var geocoder = new google.maps.Geocoder;
-        var address = document.getElementById('address').value;
-        geocoder.geocode( { 'address': address}, function(results, status) {
-          if (status == 'OK') {
+        geocoder.geocode({'address':  $scope.variableConfig.search}, function(results, status) {
+        if (status === 'OK') {
+            console.log(results);
             map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
+                new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
             });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+        } else {
+            window.alert('Geocode was not successful for the following reason: ' +
+                status);
+        }
         });
       }
     $scope.refesh = function(){
         initMap();
-        codeAddress();
+        searchLocations();
     }
    
+    function clearLocations() {
+        infoWindow.close();
+        for (var i = 0; i < markers.makersSearch.length; i++) {
+          markers.makersSearch[i].setMap(null);
+        }
+        markers.makersSearch.length = 0;
+
+        locationSelect.innerHTML = "";
+        var option = document.createElement("option");
+        option.value = "none";
+        option.innerHTML = "See all results:";
+        locationSelect.appendChild(option);
+      }
     function createMarker(info){
         infoWindow = new google.maps.InfoWindow();    
         var marker = new google.maps.Marker({
@@ -129,11 +147,11 @@ console.log(google.maps);
             title: info.city
         });
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
-        google.maps.event.addListener(marker, 'click', function(){
+        google.maps.event.addListener(marker, 'rightclick', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
             infoWindow.open(map, marker);
         });
-        markers.push(marker);
+        markers.makersData.push(marker);
     }   
   
 
