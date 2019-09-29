@@ -1,0 +1,24 @@
+https://jsfiddle.net/api/post/library/pure/
+https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/shapes#circles
+http://storage.googleapis.com/gmaps-store-locators/index.html
+ {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -1.882509,
+          50.848831
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "category": "patisserie", 
+        "hours": "10am - 6pm", 
+        "description": "A gourmet patisserie that will delight your senses. We're part of a larger chain of patisseries and cafes.", 
+        "name": "Josie's Patisserie Wimborne", 
+        "phone": "+44 1202 343434"
+      }
+    },
+
+
+https://www.sitepoint.com/google-maps-json-file/
+https://topdev.vn/blog/nhung-plugin-khong-the-thieu-cho-vscode/?fbclid=IwAR2Wwjs07YTdTmt_oBL4DlfuOh3ZZK6l-_V1zYsOP6GzZyaRoFvHDKKFDFQ
