@@ -3,7 +3,9 @@
 
 <head>
 	
-	
+	<!-- https://jsfiddle.net/fwe1jq5t/48/ -->
+	<!-- https://jsfiddle.net/fwe1jq5t/57/ -->
+	<!-- https://jsfiddle.net/fwe1jq5t/73/ -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -48,6 +50,13 @@
 			height: 100%;
 			margin: 0;
 			padding: 0;
+		}
+		.add3dot{
+			display: inline-block;
+			width: 120px;
+			white-space: nowrap;
+			overflow: hidden !important;
+			text-overflow: ellipsis;
 		}
 	</style>
 </head>
@@ -148,6 +157,14 @@
 				<div class="modal-body">
 						<div id="container">
 							<div id="map"></div>
+							<ul id="contextMenu" class="dropdown-menu" role="menu" >
+								<li title="ok"><a tabindex="-1" href="#" value="menu1:action-1">Action<span style="float:right" class="icon"><i class="glyphicon glyphicon-link"></i></span></a></li>
+								<li><a tabindex="-1" href="#" value="menu1:action-2">Another action</a></li>
+								<li ><a tabindex="-1" href="#" value="menu1:action-3" ><span class="add3dot">Something else here</span><span style="float:right" class="icon"><i class="glyphicon glyphicon-link"></i></span></a></li>
+								<li class="divider"></li>
+								<li><a tabindex="-1" href="#" value="action-4">Separated link</a></li>
+								 <li><a tabindex="-1" href="#" value="action-4">Separated link</a></li>
+							</ul>
 						</div>
 				</div>
 				<div class="modal-footer">

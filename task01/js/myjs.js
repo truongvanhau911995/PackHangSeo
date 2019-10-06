@@ -34,18 +34,19 @@ console.log(google.maps);
             long : 80.250000
         }
     ];
-
+    var myCenter = new google.maps.LatLng(28.500000, 77.250000);
 
     var map, infoWindow;
+    var menuBox = null;
     var markers = {
         makersData:[],
         makersSearch:[]
     };
     $scope.variableConfig = {
-        search:''
+        search:'viet nam'
     }
     var mapConfigs = {
-        center: new google.maps.LatLng(10000,10000),
+        center:myCenter,
         zoom: 4,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: true,
@@ -95,6 +96,12 @@ console.log(google.maps);
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
           }
+
+          map.addListener("click", function(e) {
+            if (menuDisplayed == true) {
+              menuBox.style.display = "none";
+            }
+          });
           
     }
     function searchLocations() {
@@ -147,9 +154,29 @@ console.log(google.maps);
             title: info.city
         });
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
-        google.maps.event.addListener(marker, 'rightclick', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-            infoWindow.open(map, marker);
+        marker.setMap(map);
+        marker.addListener('rightclick', function(e){
+            // infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+            // infoWindow.open(map, marker);
+            for (prop in e) {
+                if (e[prop] instanceof MouseEvent) {
+                  var pxl = e.pixel.x;
+                  var pxr = e.pixel.y;
+                  mouseEvt = e[prop];
+                  var left = mouseEvt.clientX;
+                  var top = mouseEvt.clientY;
+          
+                  menuBox = document.getElementById("contextMenu");
+                  menuBox.style.left = left + "px";
+                  menuBox.style.top = top + "px";
+                  menuBox.style.background = "white";
+                  menuBox.style.display = "block";
+          
+                  mouseEvt.preventDefault();
+          
+                  menuDisplayed = true;
+                }
+              }
         });
         markers.makersData.push(marker);
     }   
