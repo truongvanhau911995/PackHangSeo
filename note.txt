@@ -26,3 +26,5 @@ Wapplyzer
 Nimbus Screenshot & Screen Video Recorder
 
 https://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device
+
+https://github.com/varuncbv/ANGULAR-JS-SPRINGBOOT-REST-JPA-HIBERNATE-MYSQL-CRUD-APPLICATION./tree/master/angularjsrestapidemo
