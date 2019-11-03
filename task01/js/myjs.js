@@ -2,8 +2,31 @@ angular.module('todoApp', [])
   .controller('TodoListController', ['$scope', '$http', '$templateCache','$compile', function ($scope, $http, $compile, $templateCache) {
 console.log(google.maps);
     var mapStyle = [];
+    var configMap = {
+        coordinates:[],
+        countAmountPoint:1000,
+        cusPlotData:[{
+            fieldId:'year',
+            dataModelName:'year',
+            type:'date',
+            colorPoints:[
+                {
+                    value:2018,
+                    operator:'=',
+                    color:'navy'
+                },
+                {
+                    value:2016,
+                    operator:'=',
+                    color:'yellow'
+                }
+            ]
+        }]
+    }
     var configStyle = {
         fieldId:'year',
+        dataModelName:'year',
+        type:'',
         colorPlot:[
             {
                 value:2018,
@@ -17,6 +40,13 @@ console.log(google.maps);
             }
         ]
     };
+
+    var configDataChain = [
+        {
+            name:'data chain',
+
+        }
+    ];
     var cities = [
         {
             city : 'India',
@@ -52,6 +82,20 @@ console.log(google.maps);
             year : 2020,
             lat : 13.000000,
             long : 80.250000
+        },
+        {
+            city : 'Hau  ',
+            desc : 'Hau Bridge!',
+            year : 2018,
+            lat : 13.000000,
+            long : 82.300000
+        },
+        {
+            city : 'vietnamiss  ',
+            desc : 'Hau vn Bridge!',
+            year : 2018,
+            lat : 12.000000,
+            long : 75.300000
         }
     ];
     var myCenter = new google.maps.LatLng(28.500000, 77.250000);
@@ -89,25 +133,44 @@ console.log(google.maps);
         var fieldId = configStyle.fieldId;
         mapStyle[fieldId] = configStyle;
     }
-    function initMap() {
-        controlColorPoint();
 
+    function convertData(dataConfig){
+        var lenDataConfig = dataConfig.length;
+        for(var i = 0; i < lenDataConfig; i++){
+            var fieldId = dataConfig[i].fieldId; 
+            mapStyle[fieldId] = dataConfig[i].colorPoints;
+        }
+    }
+    /**
+     * get
+     * @param {*} index 
+     */
+    function setColorPlotData(index){
+        var color = '';
+        for (var key in cities[index]) {
+            if (mapStyle[key]) {
+                var idx =  _.findIndex(mapStyle[key],['value',cities[index][key]]);
+                if(idx > -1){
+                    color = mapStyle[key][idx].color;
+                }else{
+                    color = 'red';
+                }
+            }
+        }
+        return color;
+    }
+    function initMap() {
+       // controlColorPoint();
+        convertData(configMap.cusPlotData);
         if (map === undefined) {
             map = new google.maps.Map(document.getElementById('map'), mapConfigs);
         }
-        var color = '';
+        var colors = '';
         for (var i = 0; i < cities.length; i++){
-            for (var key in cities[i]) {
-                if (mapStyle[key]) {
-                    console.log(mapStyle[key].colorPlot);
-                    var indx =  _.findIndex(mapStyle[key].colorPlot,['value',cities[i][key]]);
-                    if(indx > -1){
-                        color = mapStyle[key].colorPlot[indx].color;
-                    }
-                }
-            }
-            createMarker(cities[i],color,i);
+            colors = setColorPlotData(i);
+            createMarker(cities[i],colors,i);
         }
+        console.table(markers.makersData);
         $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
@@ -182,6 +245,9 @@ console.log(google.maps);
             scale: 1
         };
     }
+    $scope.dataChain = function(){
+
+    }
     function createMarker(info,color,idx){
         infoWindow = new google.maps.InfoWindow();    
         var marker = new google.maps.Marker({
@@ -195,22 +261,22 @@ console.log(google.maps);
             },
             map: map,
             position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city
+            title: info.city + info.year
         });
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
         marker.setMap(map);
         marker.addListener('rightclick', function(e){
-            console.log(info);
-            console.log(marker);
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-             infoWindow.open(map, marker);
+            infoWindow.open(map, marker);
+             //map.setCenter({lat: info.lat, lng: info.long});
+             marker.setPosition({lat: info.lat, lng: info.long});
             for (prop in e) {
                 if (e[prop] instanceof MouseEvent) {
                   var pxl = e.pixel.x;
                   var pxr = e.pixel.y;
                   mouseEvt = e[prop];
-                  var left = mouseEvt.clientX-165;
-                  var top = mouseEvt.clientY-40;
+                  var left = mouseEvt.clientX;
+                  var top = mouseEvt.clientY;
           
                   menuBox = document.getElementById("contextMenu");
                   menuBox.style.left = left + "px";
@@ -224,8 +290,10 @@ console.log(google.maps);
                   menuDisplayed = true;
                 }
               }
+             
         });
         markers.makersData.push(marker);
+        
     }   
   
 

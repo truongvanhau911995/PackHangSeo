@@ -20,3 +20,9 @@ AIzaSyD8I86PjEk8OX3i5qb39hzMUd7l8ikE75w
 http://jsfiddle.net/wmLon147/1/
 
 http://jsfiddle.net/s3db77ff/3/
+
+
+Wapplyzer
+Nimbus Screenshot & Screen Video Recorder
+
+https://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device
