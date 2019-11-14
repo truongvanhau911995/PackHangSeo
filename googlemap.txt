@@ -1,3 +1,35 @@
+ var isMobile = window.orientation > -1;
+             if(isMobile){
+                var left1 = e.ya.clientX;
+                var top2  = e.ya.clientY;
+                var pxl1 = e.pixel.x + 450;
+                var pxr2 = e.pixel.y + 320;
+                console.log(pxl1 + " " +pxr2 +"/"+left1 + " " + top2);
+                setContextMenu(pxl1,pxr2,"fixed");
+             }else{
+                for (prop in e) {
+                    if (e[prop] instanceof MouseEvent) {
+                        var pxl = e.pixel.x;
+                        var pxr = e.pixel.y;
+                        mouseEvt = e[prop];
+                       
+                        var left = mouseEvt.clientX;
+                        var top = mouseEvt.clientY;
+                        console.log(pxl + " " +pxr +"/"+left + " " + top);
+                        // menuBox = document.getElementById("contextMenu");
+                        // menuBox.style.left = left + "px";
+                        // menuBox.style.top = top + "px";
+                        // menuBox.style.background = "white";
+                        // menuBox.style.display = "block";
+                        // menuBox.style.position = "fixed";
+                        setContextMenu(left,top,"fixed");
+                        mouseEvt.preventDefault();
+   
+                        menuDisplayed = true;
+                    }
+                }
+             }
+
 https://jsfiddle.net/api/post/library/pure/
 https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/shapes#circles
 http://storage.googleapis.com/gmaps-store-locators/index.html
