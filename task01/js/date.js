@@ -69,7 +69,7 @@ public class Student extends Peple{
    String rollNo;
    //String fullname;
 
-   public Student (String rollNo, String fullname){
+   public Student (String ro  llNo, String fullname){
       this.rollNo = rollNo;
       this.fullname = fullname;
    }

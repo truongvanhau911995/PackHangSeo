@@ -1,6 +1,5 @@
 angular.module('todoApp', [])
   .controller('TodoListController', ['$scope', '$http', '$templateCache','$compile', function ($scope, $http, $compile, $templateCache) {
-console.log(google.maps);
     var mapStyle = [];
     var configMap = {
         coordinates:[],
@@ -170,7 +169,6 @@ console.log(google.maps);
             colors = setColorPlotData(i);
             createMarker(cities[i],colors,i);
         }
-        console.table(markers.makersData);
         $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
@@ -248,6 +246,38 @@ console.log(google.maps);
     $scope.dataChain = function(){
 
     }
+    function mouseX(evt) {
+        if (evt.pageX) {
+          return evt.pageX;
+        } else if (evt.clientX) {
+          return evt.clientX + (document.documentElement.scrollLeft ?
+            document.documentElement.scrollLeft :
+            document.body.scrollLeft);
+        } else {
+          return null;
+        }
+      }
+
+      function mouseY(evt) {
+        if (evt.pageY) {
+          return evt.pageY;
+        } else if (evt.clientY) {
+          return evt.clientY + (document.documentElement.scrollTop ?
+            document.documentElement.scrollTop :
+            document.body.scrollTop);
+        } else {
+          return null;
+        }
+      }
+    function setContextMenu(pxl1,pxr2,position){
+        menuBox = document.getElementById("contextMenu");
+        menuBox.style.left = pxl1 + "px";
+        menuBox.style.top = pxr2 + "px";
+        menuBox.style.background = "white";
+        menuBox.style.display = "block";
+        menuBox.style.position = position;
+        menuDisplayed = true;
+    }
     function createMarker(info,color,idx){
         infoWindow = new google.maps.InfoWindow();    
         var marker = new google.maps.Marker({
@@ -257,7 +287,7 @@ console.log(google.maps);
                 fillOpacity: 2,
                 strokeColor: 'white',
                 strokeWeight: .5,
-                scale: 7
+                scale: 12
             },
             map: map,
             position: new google.maps.LatLng(info.lat, info.long),
@@ -265,32 +295,51 @@ console.log(google.maps);
         });
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
         marker.setMap(map);
-        marker.addListener('rightclick', function(e){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-            infoWindow.open(map, marker);
+        marker.addListener('click', function(e){
+            
+            //infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+            //infoWindow.open(map, marker);
              //map.setCenter({lat: info.lat, lng: info.long});
+            // var pxl = e.pixel.x;
+           //  alert(e);
+             console.log(e);
+             console.log(e.ya.screenX + " / "+e.ya.screenY);
              marker.setPosition({lat: info.lat, lng: info.long});
-            for (prop in e) {
-                if (e[prop] instanceof MouseEvent) {
-                  var pxl = e.pixel.x;
-                  var pxr = e.pixel.y;
-                  mouseEvt = e[prop];
-                  var left = mouseEvt.clientX;
-                  var top = mouseEvt.clientY;
-          
-                  menuBox = document.getElementById("contextMenu");
-                  menuBox.style.left = left + "px";
-                  menuBox.style.top = top + "px";
-                  menuBox.style.background = "white";
-                  menuBox.style.display = "block";
-                  menuBox.style.position = "fixed";
-                
-                  mouseEvt.preventDefault();
-          
-                  menuDisplayed = true;
+            
+            
+             var isMobile = window.orientation > -1;
+             if(isMobile){
+                var left1 = e.ya.clientX;
+                var top2  = e.ya.clientY;
+                var pxl1 = e.pixel.x + 450;
+                var pxr2 = e.pixel.y + 320;
+                console.log(pxl1 + " " +pxr2 +"/"+left1 + " " + top2);
+                setContextMenu(pxl1,pxr2,"fixed");
+             }else{
+                for (prop in e) {
+                    if (e[prop] instanceof MouseEvent) {
+                        var pxl = e.pixel.x;
+                        var pxr = e.pixel.y;
+                        mouseEvt = e[prop];
+                       
+                        var left = mouseEvt.clientX;
+                        var top = mouseEvt.clientY;
+                        console.log(pxl + " " +pxr +"/"+left + " " + top);
+                        // menuBox = document.getElementById("contextMenu");
+                        // menuBox.style.left = left + "px";
+                        // menuBox.style.top = top + "px";
+                        // menuBox.style.background = "white";
+                        // menuBox.style.display = "block";
+                        // menuBox.style.position = "fixed";
+                        setContextMenu(left,top,"fixed");
+                        mouseEvt.preventDefault();
+   
+                        menuDisplayed = true;
+                    }
                 }
-              }
+             }
              
+
         });
         markers.makersData.push(marker);
         
