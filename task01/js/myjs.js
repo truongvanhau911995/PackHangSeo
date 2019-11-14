@@ -295,7 +295,9 @@ angular.module('todoApp', [])
         });
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
         marker.setMap(map);
-        marker.addListener('click', function(e){
+        var isMobile = window.orientation > -1;
+        var eventClick = isMobile ? "click" : "rightclick";
+        marker.addListener(eventClick, function(e){
             
             //infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
             //infoWindow.open(map, marker);
@@ -307,7 +309,7 @@ angular.module('todoApp', [])
              marker.setPosition({lat: info.lat, lng: info.long});
             
             
-             var isMobile = window.orientation > -1;
+             
              if(isMobile){
                 var left1 = e.ya.clientX;
                 var top2  = e.ya.clientY;
