@@ -1,3 +1,8 @@
+https://stackoverflow.com/questions/252055/java-generics-wildcards
+https://tutorialspoint.dev/language/java/wildcards-in-java
+http://www.informit.com/articles/article.aspx?p=2861454&seqNum=6
+https://stackoverflow.com/questions/25361100/filters-with-wildcards-in-angularjs/25361396
+
 netstat -ano | findstr :4200
 https://cv.tuanitpro.com/#skills
 https://demos.wijmo.com/5/PureJS/FlexGridPager/FlexGridPager/
