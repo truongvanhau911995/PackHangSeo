@@ -253,6 +253,7 @@ angular.module('todoApp', [])
             });
         }
         $scope.refesh = function () {
+            checkAPIKey();
             initMap();
             searchLocations();
         }
@@ -376,7 +377,24 @@ angular.module('todoApp', [])
 
         }
 
-
+        ////////////////////////////////////////////////////////
+        function checkAPIKey() {
+            var apikey  = 'AIzaSyCuJtivKgsoTh24Jlxg6jldRbXcive4J6c';
+            var address = 111; 
+            var lat = 0;
+            var long = 0;
+            //var query = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + apikey;
+            var query = 'https://maps.googleapis.com/maps/api/geocode/json?latlng= '+lat+','+long+'&key=' + apikey;
+            $.getJSON(query, function (data) {
+                if (data.status === 'OK') { 
+                    var geo_data = data.results[0];
+                    console.log(data);
+                } 
+                console.log(data.status);
+            })
+        }
+        
+        
         //https://embed.plnkr.co/RNyB3r5PMMpNgoxUZgX3/
         //https://jsfiddle.net/Xeoncross/k5c2ndyL/
 
