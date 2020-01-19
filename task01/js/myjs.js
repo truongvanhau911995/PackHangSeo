@@ -189,11 +189,11 @@ angular.module('todoApp', [])
         function initMap() {
             // controlColorPoint();
             
-            if (useGmaps === true && typeof(google) !== 'undefined') {
-                console.log("ok");
-            }else{
-                console.log("false");
-            }
+            // if (useGmaps === true && typeof(google) !== 'undefined') {
+            //     console.log("ok");
+            // }else{
+            //     console.log("false");
+            // }
             function gm_authFailure() { console.log("fail") };
             convertData(configMap.cusPlotData);
             if (map === undefined) {
@@ -379,18 +379,27 @@ angular.module('todoApp', [])
 
         ////////////////////////////////////////////////////////
         function checkAPIKey() {
-            var apikey  = 'AIzaSyCuJtivKgsoTh24Jlxg6jldRbXcive4J6c';
+            var apikey  = 'AIzaSyCuJtivKgsoTh24Jlxg6jldRbXcive4J6c1';
             var address = 111; 
-            var lat = 0;
-            var long = 0;
-            //var query = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&key=' + apikey;
-            var query = 'https://maps.googleapis.com/maps/api/geocode/json?latlng= '+lat+','+long+'&key=' + apikey;
-            $.getJSON(query, function (data) {
+            var lat = 10;
+            var long = 10;
+            var headerJS = {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+              };
+            var query = 'https://maps.googleapis.com/maps/api/js?key=' + apikey;
+            //var query = 'https://maps.googleapis.com/maps/api/geocode/json?latlng= '+lat+','+long+'&key=' + apikey;
+            
+            $.getJSON(query, headerJS, function (data) {
+                console.log(data);
                 if (data.status === 'OK') { 
                     var geo_data = data.results[0];
                     console.log(data);
                 } 
-                console.log(data.status);
+                else{
+                    console.log(data.status);
+                }
+               
             })
         }
         

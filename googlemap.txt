@@ -54,3 +54,6 @@ http://storage.googleapis.com/gmaps-store-locators/index.html
 
 https://www.sitepoint.com/google-maps-json-file/
 https://topdev.vn/blog/nhung-plugin-khong-the-thieu-cho-vscode/?fbclid=IwAR2Wwjs07YTdTmt_oBL4DlfuOh3ZZK6l-_V1zYsOP6GzZyaRoFvHDKKFDFQ
+
+// bill
+https://www.storelocatorwidgets.com/supportarticle?title=How%20to%20track%20your%20usage%20of%20the%20Google%20Maps%20API
