@@ -57,3 +57,5 @@ https://topdev.vn/blog/nhung-plugin-khong-the-thieu-cho-vscode/?fbclid=IwAR2Wwjs
 
 // bill
 https://www.storelocatorwidgets.com/supportarticle?title=How%20to%20track%20your%20usage%20of%20the%20Google%20Maps%20API
+
+https://cloud.google.com/maps-platform/pricing/sheet/
